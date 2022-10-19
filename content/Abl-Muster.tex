@@ -1,0 +1,84 @@
+% !TEX root = ../AGFA-Abl-Master.tex
+% -------------------------- 
+%%  Thema:  Muster für Aufgabenblatt
+%%  Stand:	2022/10/19      
+%% --------------------------
+
+%% -- Nummer des Blattes
+%% --
+\setcounter{nummer}{1}
+
+%% -- Spruch
+%% --
+\dictum[Klaus Havenstein]{Am schönsten ist es, nichts zu tun und dann vom Nichtstun auszuruh’n.}
+
+%% -- Falls im Spaltemodus erstellt werden soll
+%% --
+\begin{multicols}{2}[%
+\section*{Aufgabenblatt \thenummer}%
+Kurzer Hinweis, dass diese Aufgaben schriftlich bis wann zu bearbeiten sind oder andere Informationen für die Teilnehmer der Übungsgruppe.
+Ab hier kann man dann auch zweispaltig weitermachen.]
+\end{multicols}		% wenn zweispaltig -> auskommentieren
+%% --
+\RaggedRight			% Besser Flattersatz machen
+%% --
+%% --
+\begin{exercise}\label{exerc:exponential}
+Für eine Matrix $ A \in \Mat( n , n ; \C) $ definieren wir
+%
+\[
+	\e^{ t A } := \sum_{ k=0 }^{ \infty } \frac{ t^{ k } A^{ k }}{ k! } .
+\]
+%
+Zeige, dass die Abbildung
+%
+\[
+	t \mapsto \e^{ tA } \colon \R \to \Mat( n , n ; \C)
+\]
+%
+stetig differenzierbar mit Ableitung
+%
+\[
+	\frac{ \mathrm{d}}{\mathrm{d}t} \e^{ t A } = A \cdot \e^{ t A }
+\]
+%
+ist.
+\end{exercise}
+%%
+\begin{exercise}\label{exerc:berechnen}
+Berechne $ \e^{ tA } $ für $ \lambda \in \C $. 
+%%
+\begin{enumerate}[(i)]
+
+	\item
+	\(				
+		A = 
+		\begin{pmatrix}
+			0	& 	1 \\
+			1	&	0 \\
+		\end{pmatrix}.
+	\)
+	%
+	\item
+	
+	\(
+	A =
+	\begin{pNiceMatrix} % ins Manual von nicematrix sehen; Seite 25ff
+	\lambda 	& 1 			& 0		& \Cdots  	& \Cdots  	&	 0		\\
+	0 		& \lambda 	& 1 	& 0			& \Cdots   	& 0			\\
+	\Vdots  	&  			& \Ddots 	& \Ddots 	&		& \Vdots    \\
+	\\ 
+	&&&&&1\\
+	0	& \Cdots 	&  	&   &  							& \lambda	\\
+	\end{pNiceMatrix} 
+	\)
+\end{enumerate}
+\end{exercise}
+%%
+\begin{solution}[zu Aufgabe~\ref{exerc:exponential}]
+
+\blindtext
+\end{solution}
+
+%% -- Ende Text
+%\end{multicols}		% wenn zweispaltig: Kommentar % wegmachen

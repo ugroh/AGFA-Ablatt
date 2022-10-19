@@ -1,0 +1,77 @@
+%% ---------------------------------------------
+%% -- Abl-layout.tex
+%% -- Vorlage für Aufgabenblätter in der AGFA
+%% Stand: 2022/10/19
+%% ---------------------------------------------
+
+%%-- Deutsch mit englischer Unterstützung
+%%-- 
+\usepackage[english,main=ngerman]{babel}
+	\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
+\usepackage[autostyle,german=guillemets,english=american]{csquotes}
+
+%%-- Kopf- und Fußzeile
+%%
+\usepackage[automark]{scrlayer-scrpage}
+
+\newcommand{\seitennummer}{%
+	\makebox[0pt][l]{%
+    \makebox[\marginparsep][r]{%
+      \rule[-\dp\strutbox]{1pt}{\normalbaselineskip}\nobreakspace
+    }%
+    \makebox[\marginparwidth][l]{\pagemark}}
+    }
+    
+\ohead{\seitennummer}%
+\ofoot{}
+%
+\chead{Vorlesung Kontrolltheorie} 
+\cfoot{}
+%
+\ihead{R. Nagel} 
+\ifoot{}
+\KOMAoptions{headsepline=0.8pt}
+\pagestyle{scrheadings}	
+
+%% --  Ausgabe mit Hinweis auf Lochung
+%% --
+\usepackage{eso-pic}
+\AddToShipoutPicture{%
+  \AtPageLowerLeft{%
+ %   \put(\LenToUnit{8mm},\LenToUnit{108mm}){\circle*{\LenToUnit{5mm}}}%
+  %  \put(\LenToUnit{8mm},\LenToUnit{188mm}){\circle*{\LenToUnit{5mm}}}%
+    \put(\LenToUnit{5mm},\LenToUnit{148.5mm}){\line(1,0){\LenToUnit{5mm}}}%
+  }%
+}
+
+%%-- Nummer des Arbeitsblattes: Bitte Nummer im Include-File setzen
+%%--
+\newcounter{nummer}
+
+%%-- Pakete
+%%--
+\usepackage{%
+	,multicol		% Wenn zweispaltig
+	,ragged2e		% Flattersatz machen
+	,libertine		% Schriftsatz
+	}
+
+\usepackage[inline,shortlabels]{enumitem}	
+
+\usepackage{nicematrix}		% texdoc nicematrix
+\NiceMatrixOptions{cell-space-limits = 1pt}
+
+
+\usepackage{%		% AMSmath
+	,amsmath
+	,amssymb}
+\usepackage[tbtags]{mathtools}
+\usepackage{ntheorem}
+
+%% -- Umgebung Aufgabe und Lösung
+%% --
+\theorembodyfont{\normalfont}
+\newtheorem{exercise}{Aufgabe}
+\newtheorem{aufgabe}[exercise]{Aufgabe}
+\newtheorem*{solution}{Lösungsvorschlag}
+\newtheorem*{loesung}{Lösungsvorschlag}

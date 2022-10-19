@@ -1,0 +1,86 @@
+%% -----------------------------
+%% -- Einige Definitionen für die Eingabe 
+%% -- mathematischen Textes
+%% -- Stand: 2022/10/19
+%% -----------------------------
+	
+%% -- Zahlen
+%% -- 
+\newcommand{\N}{\mathbb{N}}		% Natuerliche Zahlen
+\newcommand{\Z}{\mathbb{Z}}		% Ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}}		% Rationale Zahlen
+\newcommand{\R}{\mathbb{R}}		% Reelle Zahlen
+\newcommand{\C}{\mathbb{C}}		% Komplexe Zahlen
+
+%% -- var-Symbole für griechisches Alphabet
+%% --
+\let\ORGvarepsilon=\varepsilon
+\let\varepsilon=\epsilon
+\let\epsilon=\ORGvarepsilon
+%
+\let\ORGvarrho=\varrho
+\let\varrho=\rho
+\let\rho=\ORGvarrho
+%
+\let\ORGvartheta=\vartheta
+\let\vartheta=\theta
+\let\theta=\ORGvartheta
+%
+\let\ORGvarphi=\varphi
+\let\varphi=\phi
+\let\phi=\ORGvarphi
+%
+\let\ORGvarleq=\leqslant
+\let\leqslant=\leq
+\let\leq=\ORGvarleq
+%
+\let\ORGvargeq=\geqslant
+\let\geqslant=\geq
+\let\geq=\ORGvargeq
+%
+\let\ORGvarpreccurlyeq=\preccurlyeq
+\let\preccurlyeq=\preceq
+\let\preceq=\ORGvarpreccurlyeq
+
+%% -- Sonstiges
+%% -- 
+\newcommand{\Mat}{\mathop{}\!\mathrm{Mat}}
+\newcommand{\e}{\ensuremath{\mathrm{e\;\!}}}
+
+
+%% -- Ableitungen
+%% --
+\newcommand*{\diff}[1]{\mathop{}\!\mathrm{d}{#1}}	% \diff{s} = ds, 
+\renewcommand*{\d}[1]{\mathop{}\!\mathrm{d}{#1}}	% \d{\mu} = d.., 
+\newcommand*{\ds}{\mathop{}\!\mathrm{d}{s}}       	% \ds = ds, 
+
+
+%% -- Fortgeschritten: erspart etwa \left( etc.
+%% -- Klammergröße wird automatisch angebpasst
+%% --  Tippfaul DTK 1/2011 & Mail H Voss
+%% --
+\makeatletter
+\gdef\resetMathstrut@{%
+ \setbox\z@\hbox{%
+   \mathchardef\@tempa\mathcode`\!\relax%
+   \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
+   \expandafter\@tempb\meaning\@tempa \relax
+ }%
+\ht\Mathstrutbox@\ht\z@ \dp\Mathstrutbox@\dp\z@}
+\makeatother
+%
+\begingroup
+ \catcode`(\active \xdef({\left\string(}
+ \catcode`)\active \xdef){\right\string)}
+ \catcode`[\active \xdef[{\left\string[}
+ \catcode`]\active \xdef]{\right\string]}
+% \catcode`|\active \xdef|{\middle\string|}
+\endgroup
+\mathcode`(="8000 \mathcode`)="8000
+\mathcode`[="8000 \mathcode`]="8000
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% sonst gehen Klammern nicht
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareRobustCommand{\{}{\ifmmode\left\lbrace\else\textbraceleft\fi}
+\DeclareRobustCommand{\}}{\ifmmode\right\rbrace\else\textbraceright\fi}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
